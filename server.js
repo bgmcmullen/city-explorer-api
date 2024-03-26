@@ -30,12 +30,12 @@ app.get('/weather', (request, response) => {
   let city;
   let forecastArray = [];
       const {lat, lon, searchQuery} = request.query;
-  if(searchQuery)
-    city = weather.find((element) => element.city_name === searchQuery);
   if(lat)
     city = weather.find((element) => element.lat === lat);
   if(lon)
-    city = weather.find((element) => element.lon === lon);
+    city = weather.find((element) => element.lon=== lon);
+  if(searchQuery)
+    city = weather.find((element) => element.city_name === searchQuery);
 
     forecastArray= city.data.map((element) => {
       return new Forecast(element.datetime, element.weather.description);
