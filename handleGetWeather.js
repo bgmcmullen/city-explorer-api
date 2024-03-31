@@ -22,7 +22,8 @@ const handleGetWeather = async (request, response) => {
 
   let weatherResponse = [];
 
-  if (db[lat + lon + 'weather'] && Date.now() < db[lat + lon + 'weather'].time + 604800000) {
+  // check if information is in cache and is less than an hour old.
+  if (db[lat + lon + 'weather'] && Date.now() < db[lat + lon + 'weather'].time + 3600000) {
     weatherResponse = db[lat + lon + 'weather'];
   } else {
     weatherResponse = await axios.get(`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${WEATHER_API_KEY}`);
