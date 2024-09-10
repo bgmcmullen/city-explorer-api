@@ -17,7 +17,7 @@ const handleGetWeather = require('./handleGetWeather');
 const handleGetMovies = require('./handleGetMovies');
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 const app = express(); // create our express app, now we are ready to define some functionality.
 app.use(cors()); // activates cross-origin-resource-sharing. allow other origins (besides localhost to make request to this code).
