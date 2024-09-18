@@ -1,1 +1,1 @@
-# city-explorerapi
+# city-explorer-api
